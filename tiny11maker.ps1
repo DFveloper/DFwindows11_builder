@@ -12,6 +12,7 @@
 
 .PARAMETER SCRATCH
     Drive letter of the desired scratch disk (eg: D)
+	NOTE: The SCRATCH drive must support file/folder security (i.e., must be, e.g., NTFS filesystem).
 
 .EXAMPLE
     .\tiny11maker.ps1 E D

@@ -382,7 +382,7 @@ Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Windows\Explorer' 'DisableS
 Write-Output "=== Prevents installation of Teams:"
 Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Teams' 'DisableInstallation' 'REG_DWORD' '1'
 
-Write-Output "=== Prevent installation of New Outlook":
+Write-Output "=== Prevent installation of New Outlook:"
 Set-RegistryValue 'HKLM\zSOFTWARE\Policies\Microsoft\Windows\Windows Mail' 'PreventRun' 'REG_DWORD' '1'
 
 Write-Host "=== Deleting scheduled task definition files..."

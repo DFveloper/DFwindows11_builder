@@ -33,6 +33,10 @@ param (
     [ValidatePattern('^[c-zC-Z]$')][string]$SCRATCH
 )
 
+$ErrorActionPreference = 'Stop'
+$WarningPreference = 'Continue'
+$InformationPreference = 'Continue'
+
 if (-not $SCRATCH) {
     $ScratchDisk = $PSScriptRoot -replace '[\\]+$', ''
 } else {

@@ -474,6 +474,24 @@ Dismount-WindowsImage -Path $ScratchDisk\scratchdir -Save
 
 Write-Output "========================================"
 Write-Output "The tiny11 image is now completed. Proceeding with the making of the ISO..."
+
+# --- [크롬 설치 파일 및 구조 추가 시작] ---
+Write-Output "=== Adding Google Chrome to the installation media..."
+$oemPath = "$ScratchDisk\tiny11\sources\`$OEM\`$`1\Installers"
+if (-not (Test-Path $oemPath)) {
+    New-Item -ItemType Directory -Force -Path $oemPath | Out-Null
+}
+
+# 사용자가 지정한 경로에서 크롬 설치 파일 복사
+$chromeSource = "$PSScriptRoot\Browsers\chrome_installer_x64.exe"
+if (Test-Path $chromeSource) {
+    Copy-Item -Path $chromeSource -Destination "$oemPath\chrome_installer_x64.exe" -Force | Out-Null
+    Write-Output "Chrome installer copied to OEM folder."
+} else {
+    Write-Warning "Chrome installer NOT found at $chromeSource. Skipping Chrome pre-install."
+}
+# --- [크롬 설치 파일 및 구조 추가 끝] ---
+
 Write-Output "Copying unattended file for bypassing MS account on OOBE..."
 
 Copy-Item -Path "$PSScriptRoot\autounattend.xml" -Destination "$ScratchDisk\tiny11\autounattend.xml" -Force | Out-Null

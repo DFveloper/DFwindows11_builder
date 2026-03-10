@@ -4,17 +4,24 @@
         <component xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
             <OOBE>
                 <HideEULAPage>true</HideEULAPage>
-				<HideWirelessSetupInOOBE>true</HideWirelessSetupInOOBE>
-				<NetworkLocation>Home</NetworkLocation>
-				<ProtectYourPC>3</ProtectYourPC>
-				<SkipUserOOBE>true</SkipUserOOBE>
+                <HideWirelessSetupInOOBE>true</HideWirelessSetupInOOBE>
+                <NetworkLocation>Home</NetworkLocation>
+                <ProtectYourPC>3</ProtectYourPC>
+                <SkipUserOOBE>true</SkipUserOOBE>
                 <HideOnlineAccountScreens>true</HideOnlineAccountScreens>
             </OOBE>
+            <FirstLogonCommands>
+                <SynchronousCommand wcm:action="add">
+                    <Order>1</Order>
+                    <CommandLine>cmd /c "C:\Installers\chrome_installer_x64.exe /silent /install"</CommandLine>
+                    <Description>Installing Google Chrome</Description>
+                </SynchronousCommand>
+            </FirstLogonCommands>
+        </component>
+        <component xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+            <ConfigureChatAutoInstall>false</ConfigureChatAutoInstall>
         </component>
     </settings>
-    <component xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
-        <ConfigureChatAutoInstall>false</ConfigureChatAutoInstall>
-    </component>
     <settings pass="windowsPE">
         <component xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Microsoft-Windows-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
             <DynamicUpdate>
@@ -35,9 +42,9 @@
             <UserData>
                 <AcceptEula>true</AcceptEula>
                 <ProductKey>
-					<Key></Key>
-					<WillShowUI>Never</WillShowUI>
-				</ProductKey>
+                    <Key></Key>
+                    <WillShowUI>Never</WillShowUI>
+                </ProductKey>
             </UserData>
         </component>
     </settings>
